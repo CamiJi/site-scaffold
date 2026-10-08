@@ -28,7 +28,7 @@ https://TON-PSEUDO.github.io/NOM-DU-REPO/
 ```
 
 1. Ouvre le fichier **`astro.config.mjs`** (bouton crayon ✏️ sur GitHub).
-2. Remplace les deux lignes en bas des commentaires :
+2. Repère les deux lignes `const SITE` et `const BASE` (juste après le gros bloc de commentaires « À MODIFIER ») et remplace-les :
 
    ```js
    const SITE = 'https://TON-PSEUDO.github.io';
@@ -53,6 +53,8 @@ C'est tout. À chaque modification sur la branche `main`, le site se reconstruit
 
 Suis l'avancement dans l'onglet **Actions** de ton repo. Une coche verte ✅ = site en ligne.
 
+> ℹ️ Si le premier run est rouge avec une erreur 404 (« Ensure GitHub Pages has been enabled »), c'est normal : le run a eu lieu avant que Pages soit activé. Fais cette étape, puis dans l'onglet **Actions**, ouvre le run et clique sur **Re-run all jobs**.
+
 ### Étape 4 — Modifier ton contenu
 
 Tout le texte du site se trouve dans **un seul fichier** : `src/content/site.json`.
@@ -75,7 +77,7 @@ Pour changer les **couleurs**, ouvre `src/styles/global.css` et modifie les deux
 
 C'est la méthode recommandée : tu décris ce que tu veux, Copilot fait les modifications et te propose une **pull request**.
 
-1. Va sur **github.com/copilot** (ou dans l'onglet **Agents** de ton repo), choisis ton repo `NOM-DU-REPO`.
+1. Va sur **github.com/copilot**. Avant d'écrire, sélectionne ton repo `NOM-DU-REPO` (sinon Copilot ne peut pas modifier tes fichiers).
 2. Écris ta demande en français, par exemple :
    - « Remplace le titre du hero par "Photographe de mariage à Lyon" en français et en anglais. »
    - « Ajoute une quatrième carte de service intitulée "Formation" dans les deux langues. »
@@ -141,6 +143,7 @@ Pour utiliser `www.mon-domaine.com` au lieu de `TON-PSEUDO.github.io/NOM-DU-REPO
 |---|---|
 | La page est blanche ou les images/styles ne chargent pas | Vérifie que `BASE` dans `astro.config.mjs` correspond exactement au nom du repo (avec les `/` au début et à la fin). |
 | L'onglet Actions affiche une croix rouge ❌ | Clique dessus pour lire l'erreur. Le plus souvent : un fichier `site.json` mal formé (virgule en trop, guillemet manquant). |
+| L'étape deploy affiche une erreur 404 (« Ensure GitHub Pages has been enabled ») | Fais l'Étape 3 (Source = GitHub Actions), puis relance le run depuis l'onglet Actions. |
 | Le site ne se met pas à jour | Vérifie que **Settings → Pages → Source** est bien sur **GitHub Actions**. |
 | « Pages » n'apparaît pas dans Settings | Le repo doit être **public**. |
 
@@ -193,7 +196,7 @@ https://YOUR-USERNAME.github.io/REPO-NAME/
 
 ### Step 3 — Enable GitHub Pages
 
-Go to **Settings → Pages → Source** and choose **GitHub Actions**. Each commit to `main` now publishes the site automatically. Check the **Actions** tab for a green ✅.
+Go to **Settings → Pages → Source** and choose **GitHub Actions**. Each commit to `main` now publishes the site automatically. Check the **Actions** tab for a green ✅. If the first run is red with a 404 error, enable Pages as described here, then click **Re-run all jobs**.
 
 ### Step 4 — Edit your content
 
