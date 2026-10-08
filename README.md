@@ -69,7 +69,9 @@ Tout le texte du site se trouve dans **un seul fichier** : `src/content/site.jso
 
 Pour changer les **couleurs**, ouvre `src/styles/global.css` et modifie les deux lignes `--color-brand`.
 
-### Étape 5 — Modifier avec Copilot (sans coder)
+### Étape 5 — Modifier ton site avec Copilot
+
+> ⚠️ **Prérequis** : demander à Copilot de créer une **pull request** toute seule (méthode ci-dessous) demande un abonnement **GitHub Copilot Pro** ou supérieur. Le plan gratuit ne suffit pas pour cette méthode. Pas d'abonnement ? Va directement à la section [Sans abonnement payant](#sans-abonnement-payant).
 
 C'est la méthode recommandée : tu décris ce que tu veux, Copilot fait les modifications et te propose une **pull request**.
 
@@ -88,7 +90,14 @@ C'est la méthode recommandée : tu décris ce que tu veux, Copilot fait les mod
 > - Précise **la section** ou **le fichier** concerné si tu le connais.
 > - Rappelle que le texte doit être **en français ET en anglais**.
 
-> ℹ️ Utiliser Copilot pour créer des PR demande un abonnement GitHub Copilot compatible sur ton compte. Les règles que Copilot doit suivre sont dans `.github/copilot-instructions.md`.
+> ℹ️ Les règles que Copilot doit suivre sont dans `.github/copilot-instructions.md`. Les conditions des abonnements évoluent : vérifie les offres sur https://github.com/features/copilot/plans.
+
+#### Sans abonnement payant
+
+Deux solutions :
+
+- **Modifier directement sur GitHub** (la plus simple) : ouvre `src/content/site.json`, clique sur le crayon ✏️, change le texte (dans les deux blocs `fr` et `en`), puis clique sur **Commit changes**. Le site se met à jour tout seul. Attention aux guillemets `"` et aux virgules `,` : une seule erreur empêche la mise en ligne (voir [Dépannage](#dépannage)).
+- **Demander à Copilot dans VS Code** (mode *Agent*, inclus dans le plan gratuit avec un quota limité) : ouvre ton repo dans VS Code, demande la modification à Copilot, puis pousse les changements sur une nouvelle branche et ouvre la pull request depuis GitHub. Plus technique : à réserver à ceux qui sont à l'aise avec Git.
 
 ### Tester en local (optionnel)
 
@@ -192,7 +201,9 @@ All text lives in `src/content/site.json`. Always edit **both** the `"fr"` and `
 
 ### Step 5 — Edit with GitHub Copilot
 
-Go to **github.com/copilot**, pick your repo, and describe what you want in plain language (in English or French). Copilot opens a **pull request**: review the **Files changed** tab, then merge it. Rules for Copilot are in `.github/copilot-instructions.md`. Using Copilot to create pull requests requires a compatible GitHub Copilot subscription.
+Go to **github.com/copilot**, pick your repo, and describe what you want in plain language (in English or French). Copilot opens a **pull request**: review the **Files changed** tab, then merge it. Rules for Copilot are in `.github/copilot-instructions.md`.
+
+> ⚠️ Creating pull requests with Copilot requires a **Copilot Pro** plan or higher. On the free plan, edit `src/content/site.json` directly on GitHub (pencil icon, then **Commit changes**).
 
 ### Local preview (optional)
 
