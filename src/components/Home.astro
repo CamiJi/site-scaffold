@@ -1,0 +1,75 @@
+---
+import Layout from '../layouts/Layout.astro';
+import content from '../content/site.json';
+
+interface Props {
+  lang: 'fr' | 'en';
+}
+
+const { lang } = Astro.props;
+const t = content[lang];
+const base = import.meta.env.BASE_URL;
+const switchUrl = `${base}${t.switchHref.replace(/^\//, '')}`;
+---
+
+<Layout title={t.title} description={t.description} lang={lang}>
+  <header class="sticky top-0 z-10 border-b border-slate-200 bg-white/90 backdrop-blur">
+    <nav class="mx-auto flex max-w-5xl items-center justify-between gap-4 px-6 py-4">
+      <a href={base} class="text-lg font-bold text-brand-dark">{t.title}</a>
+      <ul class="flex items-center gap-5 text-sm font-medium">
+        <li><a class="hover:text-brand" href="#services">{t.nav.services}</a></li>
+        <li><a class="hover:text-brand" href="#about">{t.nav.about}</a></li>
+        <li><a class="hover:text-brand" href="#contact">{t.nav.contact}</a></li>
+        <li>
+          <a class="rounded-full border border-slate-300 px-3 py-1 hover:border-brand hover:text-brand" href={switchUrl}>
+            {t.switchLabel}
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="bg-gradient-to-br from-brand to-brand-dark px-6 py-24 text-white">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-widest text-blue-200">{t.hero.eyebrow}</p>
+        <h1 class="mt-4 text-4xl font-extrabold sm:text-5xl">{t.hero.title}</h1>
+        <p class="mt-6 text-lg text-blue-100">{t.hero.text}</p>
+        <a href="#contact" class="mt-10 inline-block rounded-full bg-white px-6 py-3 font-semibold text-brand-dark shadow hover:bg-blue-50">
+          {t.hero.cta}
+        </a>
+      </div>
+    </section>
+
+    <section id="services" class="mx-auto max-w-5xl px-6 py-20">
+      <h2 class="text-3xl font-bold text-brand-dark">{t.services.title}</h2>
+      <div class="mt-10 grid gap-6 sm:grid-cols-3">
+        {t.services.items.map((item) => (
+          <article class="rounded-2xl border border-slate-200 p-6 shadow-sm">
+            <h3 class="text-xl font-semibold">{item.title}</h3>
+            <p class="mt-3 text-slate-600">{item.text}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="about" class="bg-slate-50 px-6 py-20">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-3xl font-bold text-brand-dark">{t.about.title}</h2>
+        <p class="mt-6 text-lg text-slate-600">{t.about.text}</p>
+      </div>
+    </section>
+
+    <section id="contact" class="mx-auto max-w-3xl px-6 py-20 text-center">
+      <h2 class="text-3xl font-bold text-brand-dark">{t.contact.title}</h2>
+      <p class="mt-6 text-lg text-slate-600">{t.contact.text}</p>
+      <a href={`mailto:${t.contact.email}`} class="mt-6 inline-block font-semibold text-brand hover:underline">
+        {t.contact.email}
+      </a>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 px-6 py-8 text-center text-sm text-slate-500">
+    {t.footer}
+  </footer>
+</Layout>

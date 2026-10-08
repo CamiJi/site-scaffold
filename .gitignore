@@ -1,0 +1,8 @@
+# dépendances et build
+node_modules/
+dist/
+.astro/
+
+# fichiers locaux
+.env
+.DS_Store

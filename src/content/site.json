@@ -1,0 +1,66 @@
+{
+  "fr": {
+    "lang": "fr",
+    "title": "Mon site",
+    "description": "Un site simple, rapide et bilingue.",
+    "nav": { "services": "Services", "about": "À propos", "contact": "Contact" },
+    "switchLabel": "English",
+    "switchHref": "/",
+    "hero": {
+      "eyebrow": "Bienvenue",
+      "title": "Votre titre accrocheur ici",
+      "text": "Une phrase courte qui explique ce que vous faites et pour qui.",
+      "cta": "Me contacter"
+    },
+    "services": {
+      "title": "Services",
+      "items": [
+        { "title": "Service 1", "text": "Décrivez ce service en une ou deux phrases." },
+        { "title": "Service 2", "text": "Décrivez ce service en une ou deux phrases." },
+        { "title": "Service 3", "text": "Décrivez ce service en une ou deux phrases." }
+      ]
+    },
+    "about": {
+      "title": "À propos",
+      "text": "Présentez-vous ici : qui vous êtes, votre parcours et ce qui vous motive."
+    },
+    "contact": {
+      "title": "Contact",
+      "text": "Une question ? Écrivez-moi.",
+      "email": "hello@example.com"
+    },
+    "footer": "© Mon site. Tous droits réservés."
+  },
+  "en": {
+    "lang": "en",
+    "title": "My site",
+    "description": "A simple, fast and bilingual website.",
+    "nav": { "services": "Services", "about": "About", "contact": "Contact" },
+    "switchLabel": "Français",
+    "switchHref": "/fr/",
+    "hero": {
+      "eyebrow": "Welcome",
+      "title": "Your catchy title here",
+      "text": "A short sentence explaining what you do and for whom.",
+      "cta": "Contact me"
+    },
+    "services": {
+      "title": "Services",
+      "items": [
+        { "title": "Service 1", "text": "Describe this service in one or two sentences." },
+        { "title": "Service 2", "text": "Describe this service in one or two sentences." },
+        { "title": "Service 3", "text": "Describe this service in one or two sentences." }
+      ]
+    },
+    "about": {
+      "title": "About",
+      "text": "Introduce yourself here: who you are, your background and what drives you."
+    },
+    "contact": {
+      "title": "Contact",
+      "text": "A question? Write to me.",
+      "email": "hello@example.com"
+    },
+    "footer": "© My site. All rights reserved."
+  }
+}

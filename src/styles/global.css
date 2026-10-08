@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+/* Couleurs du site : modifiez ces deux lignes pour changer la palette. */
+@theme {
+  --color-brand: #1d4ed8;
+  --color-brand-dark: #1e3a8a;
+}
