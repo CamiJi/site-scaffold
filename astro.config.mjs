@@ -19,8 +19,8 @@ import tailwindcss from '@tailwindcss/vite';
 //   SITE = 'https://www.mon-domaine.com'
 //   BASE = '/'
 // ============================================================
-const SITE = 'https://TON-PSEUDO.github.io';
-const BASE = '/NOM-DU-REPO/';
+const SITE = 'https://camiji.github.io';
+const BASE = '/site-scaffold/';
 
 export default defineConfig({
   site: SITE,
