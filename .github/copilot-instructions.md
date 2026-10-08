@@ -19,7 +19,7 @@ Il est **bilingue** : français (`/fr/`) et anglais (`/` racine). Toute modifica
 | changer les couleurs | `src/styles/global.css` (bloc `@theme`) |
 | changer la structure d'une section (ex. ajouter une section) | `src/components/Home.astro` |
 | ajouter une page | `src/pages/nom-de-la-page.astro` (anglais) **et** `src/pages/fr/nom-de-la-page.astro` (français) |
-| changer l'adresse du site | `astro.config.mjs` (constantes `SITE` et `BASE`) |
+| changer l'adresse du site (domaine perso) | `astro.config.mjs` (constante `CUSTOM_DOMAIN`) — l'adresse est calculée automatiquement, ne pas la modifier autrement |
 | changer l'icône du site | `public/favicon.svg` |
 
 ## Règles pour les pages et le contenu

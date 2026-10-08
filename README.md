@@ -19,27 +19,17 @@ Ce modèle est **bilingue** : français et anglais.
 3. Choisis **Public** (obligatoire pour GitHub Pages gratuit).
 4. Clique sur **« Create repository »**.
 
-### Étape 2 — Régler l'adresse de ton site
+### Étape 2 — L'adresse de ton site (rien à faire)
 
-Ton site sera publié à l'adresse :
+Ton site sera publié automatiquement à l'adresse :
 
 ```
 https://TON-PSEUDO.github.io/NOM-DU-REPO/
 ```
 
-1. Ouvre le fichier **`astro.config.mjs`** (bouton crayon ✏️ sur GitHub).
-2. Repère les deux lignes `const SITE` et `const BASE` (juste après le gros bloc de commentaires « À MODIFIER ») et remplace-les :
+L'adresse est calculée toute seule à partir du nom de ton repo. Tu n'as **rien à modifier**.
 
-   ```js
-   const SITE = 'https://TON-PSEUDO.github.io';
-   const BASE = '/NOM-DU-REPO/';
-   ```
-
-   - `TON-PSEUDO` : ton pseudo GitHub.
-   - `NOM-DU-REPO` : le nom de ton repo (exactement le même, avec les mêmes majuscules).
-3. Clique sur **« Commit changes »**.
-
-> ℹ️ Tu veux une adresse plus simple (`https://TON-PSEUDO.github.io/`) ? Crée un repo nommé exactement `TON-PSEUDO.github.io`, puis mets `BASE = '/'`.
+> ℹ️ Ton repo s'appelle exactement `TON-PSEUDO.github.io` ? Ton site est alors à `https://TON-PSEUDO.github.io/`, toujours sans rien à modifier.
 >
 > ℹ️ Tu veux ton propre nom de domaine (`www.mon-domaine.com`) ? Voir la section [Nom de domaine](#nom-de-domaine-optionnel) plus bas.
 
@@ -110,7 +100,7 @@ npm install
 npm run dev
 ```
 
-Puis ouvre l'adresse affichée (en général `http://localhost:4321/NOM-DU-REPO/`).
+Puis ouvre l'adresse affichée (en général `http://localhost:4321/`).
 
 Pour vérifier que tout se construit correctement : `npm run build`.
 
@@ -128,11 +118,10 @@ Pour utiliser `www.mon-domaine.com` au lieu de `TON-PSEUDO.github.io/NOM-DU-REPO
 
    Pour un domaine nu (`mon-domaine.com` sans `www`), crée à la place 4 enregistrements `A` vers `185.199.108.153`, `185.199.109.153`, `185.199.110.153` et `185.199.111.153`.
 4. Attends la propagation DNS (quelques minutes à 24 h), puis coche **Enforce HTTPS** dans les réglages Pages.
-5. Dans `astro.config.mjs`, passe à :
+5. Dans `astro.config.mjs`, cherche la ligne `const CUSTOM_DOMAIN = '';` (dans le bloc « Adresse du site ») et écris ton domaine entre les guillemets, sans `https://` :
 
    ```js
-   const SITE = 'https://www.mon-domaine.com';
-   const BASE = '/';
+   const CUSTOM_DOMAIN = 'www.mon-domaine.com';
    ```
 
    Commit, et le site se reconstruit à la bonne adresse.
@@ -141,7 +130,7 @@ Pour utiliser `www.mon-domaine.com` au lieu de `TON-PSEUDO.github.io/NOM-DU-REPO
 
 | Problème | Solution |
 |---|---|
-| La page est blanche ou les images/styles ne chargent pas | Vérifie que `BASE` dans `astro.config.mjs` correspond exactement au nom du repo (avec les `/` au début et à la fin). |
+| La page est blanche ou les images/styles ne chargent pas | Vérifie que ton repo est bien **public** et que le déploiement est vert. Si tu utilises un domaine perso, vérifie `CUSTOM_DOMAIN` dans `astro.config.mjs`. |
 | L'onglet Actions affiche une croix rouge ❌ | Clique dessus pour lire l'erreur. Le plus souvent : un fichier `site.json` mal formé (virgule en trop, guillemet manquant). |
 | L'étape deploy affiche une erreur 404 (« Ensure GitHub Pages has been enabled ») | Fais l'Étape 3 (Source = GitHub Actions), puis relance le run depuis l'onglet Actions. |
 | Le site ne se met pas à jour | Vérifie que **Settings → Pages → Source** est bien sur **GitHub Actions**. |
@@ -159,7 +148,7 @@ src/
     ├── index.astro        ← page anglaise (/)
     └── fr/index.astro     ← page française (/fr/)
 public/favicon.svg         ← icône du site
-astro.config.mjs           ← adresse du site (SITE et BASE)
+astro.config.mjs           ← adresse du site (automatique ; domaine perso optionnel)
 .github/workflows/         ← publication automatique
 .github/copilot-instructions.md ← règles pour Copilot
 ```
@@ -174,25 +163,17 @@ astro.config.mjs           ← adresse du site (SITE et BASE)
 2. Pick a name, for example `my-site`. **This name becomes part of your site address.**
 3. Choose **Public** (required for free GitHub Pages).
 
-### Step 2 — Set your site address
+### Step 2 — Your site address (nothing to do)
 
-Your site will live at:
+Your site is published automatically at:
 
 ```
 https://YOUR-USERNAME.github.io/REPO-NAME/
 ```
 
-1. Open **`astro.config.mjs`** and edit:
+The address is computed from your repo name. You do **not** need to edit anything.
 
-   ```js
-   const SITE = 'https://YOUR-USERNAME.github.io';
-   const BASE = '/REPO-NAME/';
-   ```
-
-2. Commit the change.
-
-> If you name your repo exactly `YOUR-USERNAME.github.io`, set `BASE = '/'` for a shorter address.
-> For your own domain, see the "Custom domain" section (in French above).
+> For your own domain, set `CUSTOM_DOMAIN` in `astro.config.mjs` (see the "Nom de domaine" section in French above).
 
 ### Step 3 — Enable GitHub Pages
 

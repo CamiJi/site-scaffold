@@ -3,24 +3,33 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
 // ============================================================
-// 👇 À MODIFIER : l'adresse de ton site GitHub Pages
+// Adresse du site : calculée automatiquement.
+//
+// Pendant le déploiement GitHub Actions, GitHub fournit le nom du repo
+// (GITHUB_REPOSITORY, ex. "mon-pseudo/mon-site"). On en déduit l'adresse :
+//   https://mon-pseudo.github.io/mon-site/
+// Si le repo s'appelle "mon-pseudo.github.io", l'adresse est
+//   https://mon-pseudo.github.io/
+//
+// Pour un nom de domaine perso (ex. www.mon-domaine.com), écris-le ici
+// entre les guillemets, sans https:// :
+const CUSTOM_DOMAIN = '';
 // ============================================================
-//
-// Pour un site "projet" (adresse https://TON-PSEUDO.github.io/NOM-DU-REPO/) :
-//   SITE = 'https://TON-PSEUDO.github.io'
-//   BASE = '/NOM-DU-REPO/'
-//
-// Pour un site "utilisateur" (repo nommé TON-PSEUDO.github.io,
-// adresse https://TON-PSEUDO.github.io/) :
-//   SITE = 'https://TON-PSEUDO.github.io'
-//   BASE = '/'
-//
-// Pour un domaine personnalisé (ex. https://www.mon-domaine.com/) :
-//   SITE = 'https://www.mon-domaine.com'
-//   BASE = '/'
-// ============================================================
-const SITE = 'https://camiji.github.io';
-const BASE = '/site-scaffold/';
+
+const repository = process.env.GITHUB_REPOSITORY ?? '';
+const [owner = '', repoName = ''] = repository.split('/');
+const isUserSite = repoName.toLowerCase() === `${owner.toLowerCase()}.github.io`;
+
+let SITE = 'http://localhost:4321';
+let BASE = '/';
+
+if (CUSTOM_DOMAIN) {
+  SITE = `https://${CUSTOM_DOMAIN}`;
+  BASE = '/';
+} else if (owner) {
+  SITE = `https://${owner.toLowerCase()}.github.io`;
+  BASE = isUserSite ? '/' : `/${repoName}/`;
+}
 
 export default defineConfig({
   site: SITE,
